@@ -37,6 +37,7 @@ mongoose.connection.on('open', () => {
     } else {
       console.log(names);
     }
+  })
 })
 
 
@@ -46,4 +47,4 @@ app.use(express.urlencoded({ extended: true }));
 polling();
 
 app.use("/api/server", require("./routes/api/server"));
-app.listen(PORT, () => console.log(`Main Server running on port ${PORT}`));
+app.listen(PORT, () => {console.log(`Main Server running on port ${PORT}`)});
