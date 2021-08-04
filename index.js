@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 8080;
 const MONGO_DB_URL =
   process.env.MONGO_DB_URL || "mongodb://admin:admin@10.128.0.109:27017/projectDB";
 
-const connection = mongoose
+mongoose
   .connect(MONGO_DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -30,8 +30,8 @@ const connection = mongoose
     console.log("mongodb connection failed", err);
   });
 
-connection.on('open', () => {
-  connection.db.listCollections().toArray(function (err, names) {
+mongoose.connection.on('open', () => {
+  mongoose.connection.db.listCollections().toArray(function (err, names) {
     if (err) {
       console.log(err);
     } else {
