@@ -24,6 +24,7 @@ const processExists = async (process) => {
     osId: process.pid,
     serverId: process.serverId,
   });
+  console.log(instance, process);
   if (instance) {
     let currStatus = process.status;
     if (currStatus !== "In Progress") {
