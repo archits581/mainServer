@@ -167,35 +167,60 @@ router.get("/processes/serverList", async (req, res) => {
 });
 
 router.post("/populate", async (req, res) => {
-  let newUser = {
-    username: "Admin",
-    password: "$2b$05$S1IMnHLOM81YTEd4IUMkFOqdUEp3RxcNodkWt9LgAQ/3Xx9tLzR7i",
-    designationId: "1",
-  };
-  let userObject = new users(newUser);
-  userObject.save((err, user) => {
-    if (err) {
-      res.status(503).send({ msg: err });
-    }
-  });
-  let p1 = {
-    designationIds: [1, 2, 3],
-    processName: "Change_Severity.py",
+  // let newUser = {
+  //   username: "Admin",
+  //   password: "$2b$05$S1IMnHLOM81YTEd4IUMkFOqdUEp3RxcNodkWt9LgAQ/3Xx9tLzR7i",
+  //   designationId: "1",
+  // };
+  // let userObject = new users(newUser);
+  // userObject.save((err, user) => {
+  //   if (err) {
+  //     res.status(503).send({ msg: err });
+  //   }
+  // });
+  // let p1 = {
+  //   designationIds: [1, 2, 3],
+  //   processName: "Change_Severity.py",
+  // };
+
+  // let p2 = {
+  //   designationIds: [1, 2],
+  //   processName: "Clean_Database.py",
+  // };
+
+  // let p3 = {
+  //   designationIds: [1, 2, 3],
+  //   processName: "Clear_Closed_Events.py",
+  // };
+
+  // processes.create(p1);
+  // processes.create(p2);
+  // processes.create(p3);
+
+  let s1 = {
+    serverName: "dev-server-1",
+    ipAddress: "process-server-1-process-server-1.apps.123.252.203.198.nip.io",
+    port: "8080",
+    processIds: [
+      "610a6e7a691612001a2f3e46",
+      "610a6e7a691612001a2f3e47",
+      "610a6e7a691612001a2f3e48",
+    ],
   };
 
-  let p2 = {
-    designationIds: [1, 2],
-    processName: "Clean_Database.py",
+  let s2 = {
+    serverName: "dev-server-2",
+    ipAddress: "process-server-2-process-server-2.apps.123.252.203.198.nip.io",
+    port: "8080",
+    processIds: [
+      "610a6e7a691612001a2f3e46",
+      "610a6e7a691612001a2f3e47",
+      "610a6e7a691612001a2f3e48",
+    ],
   };
 
-  let p3 = {
-    designationIds: [1, 2, 3],
-    processName: "Clear_Closed_Events.py",
-  };
-
-  processes.create(p1);
-  processes.create(p2);
-  processes.create(p3);
+  servers.create(s1);
+  servers.create(s2);
 
   
   res.status(200).send({ msg: "Populated database successfully" });
