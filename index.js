@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const { polling } = require("./helper");
 const cors = require("cors");
 const app = express();
+const instances = require('./models/instances');
 
 // Setting CORS options
 const corsOptions = {
@@ -31,13 +32,8 @@ mongoose
   });
 
 mongoose.connection.on('open', () => {
-  mongoose.connection.db.listCollections().toArray(function (err, names) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(names);
-    }
-  })
+  var countOfInstances = instances.count();
+  console.log(countOfInstances);
 })
 
 
