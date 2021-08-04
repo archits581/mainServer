@@ -178,10 +178,10 @@ router.post("/populate", async (req, res) => {
   //     res.status(503).send({ msg: err });
   //   }
   // });
-  // let p1 = {
-  //   designationIds: [1, 2, 3],
-  //   processName: "Change_Severity.py",
-  // };
+  let p1 = {
+    designationIds: [1, 2, 3],
+    processName: "p1.py",
+  };
 
   // let p2 = {
   //   designationIds: [1, 2],
@@ -193,7 +193,7 @@ router.post("/populate", async (req, res) => {
   //   processName: "Clear_Closed_Events.py",
   // };
 
-  // processes.create(p1);
+  processes.create(p1);
   // processes.create(p2);
   // processes.create(p3);
 
@@ -222,25 +222,25 @@ router.post("/populate", async (req, res) => {
   // servers.create(s1);
   // servers.create(s2);
 
-  let i1 = {
-    startTime: "2021-07-19T11:13:00.000Z",
-    endTime: "2021-07-19T11:15:00.000Z",
-    osId: 3338,
-    processName: "Change_Severity.py",
-    serverId: "610a711b7e2092001d48beb9",
-    status: "Completed",
-  };
-  let i2 = {
-    startTime: "2021-07-19T11:17:00.000Z",
-    endTime: "2021-07-19T11:19:00.000Z",
-    osId: 3340,
-    processName: "Change_Severity.py",
-    serverId: "610a711b7e2092001d48beb9",
-    status: "Completed",
-  };
+  // let i1 = {
+  //   startTime: "2021-07-19T11:13:00.000Z",
+  //   endTime: "2021-07-19T11:15:00.000Z",
+  //   osId: 3338,
+  //   processName: "Change_Severity.py",
+  //   serverId: "610a711b7e2092001d48beb9",
+  //   status: "Completed",
+  // };
+  // let i2 = {
+  //   startTime: "2021-07-19T11:17:00.000Z",
+  //   endTime: "2021-07-19T11:19:00.000Z",
+  //   osId: 3340,
+  //   processName: "Change_Severity.py",
+  //   serverId: "610a711b7e2092001d48beb9",
+  //   status: "Completed",
+  // };
 
-  instances.create(i1);
-  instances.create(i2);
+  // instances.create(i1);
+  // instances.create(i2);
 
   
   res.status(200).send({ msg: "Populated database successfully" });
