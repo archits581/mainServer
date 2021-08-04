@@ -197,30 +197,50 @@ router.post("/populate", async (req, res) => {
   // processes.create(p2);
   // processes.create(p3);
 
-  let s1 = {
-    serverName: "dev-server-1",
-    ipAddress: "process-server-1-process-server-1.apps.123.252.203.198.nip.io",
-    port: "8080",
-    processIds: [
-      "610a6e7a691612001a2f3e46",
-      "610a6e7a691612001a2f3e47",
-      "610a6e7a691612001a2f3e48",
-    ],
+  // let s1 = {
+  //   serverName: "dev-server-1",
+  //   ipAddress: "process-server-1-process-server-1.apps.123.252.203.198.nip.io",
+  //   port: "8080",
+  //   processIds: [
+  //     "610a6e7a691612001a2f3e46",
+  //     "610a6e7a691612001a2f3e47",
+  //     "610a6e7a691612001a2f3e48",
+  //   ],
+  // };
+
+  // let s2 = {
+  //   serverName: "dev-server-2",
+  //   ipAddress: "process-server-2-process-server-2.apps.123.252.203.198.nip.io",
+  //   port: "8080",
+  //   processIds: [
+  //     "610a6e7a691612001a2f3e46",
+  //     "610a6e7a691612001a2f3e47",
+  //     "610a6e7a691612001a2f3e48",
+  //   ],
+  // };
+
+  // servers.create(s1);
+  // servers.create(s2);
+
+  let i1 = {
+    startTime: "2021-07-19T11:13:00.000Z",
+    endTime: "2021-07-19T11:15:00.000Z",
+    osId: 3338,
+    processName: "Change_Severity.py",
+    serverId: "610a711b7e2092001d48beb9",
+    status: "Completed",
+  };
+  let i2 = {
+    startTime: "2021-07-19T11:17:00.000Z",
+    endTime: "2021-07-19T11:19:00.000Z",
+    osId: 3340,
+    processName: "Change_Severity.py",
+    serverId: "610a711b7e2092001d48beb9",
+    status: "Completed",
   };
 
-  let s2 = {
-    serverName: "dev-server-2",
-    ipAddress: "process-server-2-process-server-2.apps.123.252.203.198.nip.io",
-    port: "8080",
-    processIds: [
-      "610a6e7a691612001a2f3e46",
-      "610a6e7a691612001a2f3e47",
-      "610a6e7a691612001a2f3e48",
-    ],
-  };
-
-  servers.create(s1);
-  servers.create(s2);
+  instances.create(i1);
+  instances.create(i2);
 
   
   res.status(200).send({ msg: "Populated database successfully" });
