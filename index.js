@@ -32,8 +32,12 @@ mongoose
   });
 
 mongoose.connection.on('open', () => {
-  var countOfInstances = instances.count();
-  console.log(countOfInstances);
+  instances.countDocuments({}, (err, count) => {
+    if(err) console.log(err);
+    else{
+      console.log(count);
+    }
+  })
 })
 
 
