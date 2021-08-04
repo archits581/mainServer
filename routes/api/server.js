@@ -166,4 +166,39 @@ router.get("/processes/serverList", async (req, res) => {
   res.status(503);
 });
 
+router.post("/populate", async (req, res) => {
+  let newUser = {
+    username: "Admin",
+    password: "$2b$05$S1IMnHLOM81YTEd4IUMkFOqdUEp3RxcNodkWt9LgAQ/3Xx9tLzR7i",
+    designationId: "1",
+  };
+  let userObject = new users(newUser);
+  userObject.save((err, user) => {
+    if (err) {
+      res.status(503).send({ msg: err });
+    }
+  });
+  let p1 = {
+    designationIds: [1, 2, 3],
+    processName: "Change_Severity.py",
+  };
+
+  let p2 = {
+    designationIds: [1, 2],
+    processName: "Clean_Database.py",
+  };
+
+  let p3 = {
+    designationIds: [1, 2, 3],
+    processName: "Clear_Closed_Events.py",
+  };
+
+  processes.create(p1);
+  processes.create(p2);
+  processes.create(p3);
+
+  
+  res.status(200).send({ msg: "Populated database successfully" });
+});
+
 module.exports = router;
