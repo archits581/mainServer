@@ -10,7 +10,6 @@ const processes = require("../../models/processes");
 const servers = require("../../models/servers");
 const users = require("../../models/users");
 
-
 // Instances Status Endpoint - Fetches all instances from the database depending on the Level of Control
 router.get("/processes/status", verifyToken, async (req, res) => {
   jwt.verify(req.token, "jwtSecret", (err, authData) => {
@@ -130,7 +129,7 @@ router.post("/login", (req, res) => {
           designationId: data.designationId,
           lastLogin: data.lastLogin,
         };
-        
+
         // var currentTime = new Date();
         // var ISTOffset = 330;
         // var currentOffset = currentTime.getTimezoneOffset();
@@ -180,7 +179,7 @@ router.post("/populate", async (req, res) => {
   // });
   let p1 = {
     designationIds: [1, 2, 3],
-    processName: "p1.py",
+    processName: "p1",
   };
 
   // let p2 = {
@@ -242,7 +241,8 @@ router.post("/populate", async (req, res) => {
   // instances.create(i1);
   // instances.create(i2);
 
-  
+  // 610acbe6ba87d0001a55b505
+
   res.status(200).send({ msg: "Populated database successfully" });
 });
 
